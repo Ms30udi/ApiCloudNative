@@ -1,0 +1,61 @@
+### Variables globales
+@baseUrl = http://localhost:3000/api
+@token = votre_token_jwt_ici
+
+### Inscription d'un utilisateur
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Connexion d'un utilisateur
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Créer une nouvelle playlist
+POST {{baseUrl}}/playlists
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Ma Playlist Test",
+    "description": "Une playlist pour tester l'API"
+}
+
+### Récupérer toutes les playlists
+GET {{baseUrl}}/playlists
+Authorization: Bearer {{token}}
+
+### Récupérer une playlist spécifique
+GET {{baseUrl}}/playlists/{{playlist_id}}
+Authorization: Bearer {{token}}
+
+### Ajouter une chanson à une playlist
+POST {{baseUrl}}/playlists/{{playlist_id}}/songs
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "title": "Titre de la chanson",
+    "artist": "Nom de l'artiste",
+    "spotifyId": "id_spotify_de_la_chanson",
+    "image": "url_de_l_image",
+    "previewUrl": "url_de_preview"
+}
+
+### Supprimer une chanson d'une playlist
+DELETE {{baseUrl}}/playlists/{{playlist_id}}/songs/{{song_id}}
+Authorization: Bearer {{token}}
+
+### Supprimer une playlist
+DELETE {{baseUrl}}/playlists/{{playlist_id}}
+Authorization: Bearer {{token}}
