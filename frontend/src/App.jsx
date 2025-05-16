@@ -38,6 +38,7 @@ const App = () => {
             }
           />
           <Route path="/" element={<Home />} />
+          <Route path="/ApiCloudNative/*" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </Router>
