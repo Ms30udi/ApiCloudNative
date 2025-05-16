@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Playlists from './pages/Playlists';
-import PlaylistDetail from './pages/PlaylistDetail';
 import Home from './pages/Home';
 import Search from './pages/Search';
 
@@ -27,14 +26,6 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Playlists />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/playlist/:id"
-            element={
-              <PrivateRoute>
-                <PlaylistDetail />
               </PrivateRoute>
             }
           />
